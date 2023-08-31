@@ -3,6 +3,7 @@ import Hero from '../../components/sections/Hero';
 import Popular from '../../components/sections/Popular';
 import About from '../../components/sections/About';
 import Service from '../../components/sections/Service';
+import Offer from '../../components/sections/Offer';
 
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
         <Popular />
         <About />
         <Service />
+        <Offer />
       </section>
     </main>
   )
