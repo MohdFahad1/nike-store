@@ -4,6 +4,7 @@ import Popular from '../../components/sections/Popular';
 import About from '../../components/sections/About';
 import Service from '../../components/sections/Service';
 import Offer from '../../components/sections/Offer';
+import Testimonials from '../../components/sections/Testimonials';
 
 
 export default function Home() {
@@ -15,6 +16,7 @@ export default function Home() {
         <About />
         <Service />
         <Offer />
+        <Testimonials />
       </section>
     </main>
   )
