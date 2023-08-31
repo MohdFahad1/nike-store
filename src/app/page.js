@@ -5,6 +5,7 @@ import About from '../../components/sections/About';
 import Service from '../../components/sections/Service';
 import Offer from '../../components/sections/Offer';
 import Testimonials from '../../components/sections/Testimonials';
+import Newsletter from '../../components/sections/Newsletter';
 
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
         <Service />
         <Offer />
         <Testimonials />
+        <Newsletter />
       </section>
     </main>
   )
