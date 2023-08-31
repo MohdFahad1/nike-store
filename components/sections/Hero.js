@@ -13,6 +13,8 @@ const Hero = () => {
     
     return (
         <section className="flex lg:flex-row flex-col gap-10">
+
+        {/* TEXT PART */}
             <div className="lg:w-[530px] md:w-[530px] w-auto">
                 <div className="lg:px-0 px-3">
                     <h3 className="text-[#FF6452] capitalize text-xl font-light my-14">our summer collections</h3>
@@ -37,14 +39,16 @@ const Hero = () => {
                     </div>
                 </div>
             </div>
-            <div className="lg:static relative">
-                    <Image src={bg} alt="bg" className="absolute top-0"/>
+
+            {/* SHOE SHOWCASE */}
+            <div className="lg:static relative h-auto">
+                    <Image src={bg} alt="bg" className="absolute top-0 h-full"/>
                     <div>
                         <Image src={isImage} alt="Shoe" className='relative lg:h-[500px] md:h-[500px] h-[400px] lg:w-[500px] md:w-[500px] w-[400px] lg:left-[20%] md:left-[20%] left-0 lg:top-[50px] md:top-[50px] top-0'/>
                     </div>
 
                     {/* SHOES SELECTOR */}
-                    <div className="relative flex items-center lg:gap-12 md:gap-12 gap-3 lg:mt-[110px] md:mt-[100px] mt-0">
+                    <div className="relative flex items-center lg:gap-12 md:gap-12 gap-3 lg:mt-[110px] md:mt-[180px] mt-[20px]">
 
 
                         {/* FIRST SHOE */}
