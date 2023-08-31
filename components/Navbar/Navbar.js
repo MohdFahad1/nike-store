@@ -8,15 +8,15 @@ import { FaBars } from 'react-icons/fa'
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
   return (
-    <nav className="container mx-auto px-20 flex justify-between items-center h-14 text-xl">
+    <nav className="container mx-auto lg:px-20 px-3 flex justify-between items-center h-20 text-xl lg:relative static z-10">
         <div>
             <Image src={logo} alt="NIKE" priority={true} className="cursor-pointer"/>
         </div>
-            <ul className="flex gap-14 ">
-                <li className="cursor-pointer text-[#6D6D6D]">Home</li>
-                <li className="cursor-pointer text-[#6D6D6D]">About Us</li>
-                <li className="cursor-pointer text-[#6D6D6D]">Products</li>
-                <li className="cursor-pointer text-[#6D6D6D]">Contact Us</li>
+            <ul className="lg:flex gap-14 hidden">
+                <li className="cursor-pointer text-[#6D6D6D] font-light">Home</li>
+                <li className="cursor-pointer text-[#6D6D6D] font-light">About Us</li>
+                <li className="cursor-pointer text-[#6D6D6D] font-light">Products</li>
+                <li className="cursor-pointer text-[#6D6D6D] font-light">Contact Us</li>
             </ul>
         <div className="lg:block lg:gap-0 flex gap-10">
             <div className="relative">
