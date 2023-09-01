@@ -21,6 +21,7 @@ const page = () => {
         const filteredShoesWithCheckBox = isChecked ? filteredShoes.filter((shoe) => shoe.rating >= 4.5) : filteredShoes; 
 
         setFilteredData(filteredShoesWithCheckBox);
+        setShoesData(filteredShoesWithCheckBox);
     }
 
     const handleCheckBox = (e) => {
@@ -35,11 +36,9 @@ const page = () => {
 
         
         if(selectedOption === 'Sort By'){
-            setFilteredData(shoesData);
-            return;
+            sortedData.sort((a, b) => a.id - b.id);
         }
-
-        if(selectedOption === 'Highest'){
+        else if(selectedOption === 'Highest'){
             sortedData.sort((a, b) => b.price - a.price);
         }
         else if(selectedOption === 'Lowest'){
