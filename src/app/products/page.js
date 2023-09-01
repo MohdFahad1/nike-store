@@ -7,9 +7,11 @@ import NotFound from '../../../components/Animation/NotFound.json';
 import Lottie from 'lottie-react';
 
 const page = () => {
+    const [shoesData, setShoesData] = useState(data);
     const [filteredData, setFilteredData] = useState(data);
     const [searchQuery, setSearchQuery] = useState('');
     const [isChecked, setIsChecked] = useState(false);
+    const [sortOption, setSortOption] = useState('');
 
     const handleSearch = () => {
         const filteredShoes = data.filter((shoe) => 
@@ -23,6 +25,28 @@ const page = () => {
 
     const handleCheckBox = (e) => {
         setIsChecked(e.target.checked);
+    }
+
+    const handleSortChange = (e) => {
+        const selectedOption = e.target.value;
+        setSortOption(selectedOption);
+
+        const sortedData = [...filteredData];
+
+        
+        if(selectedOption === 'Sort By'){
+            setFilteredData(shoesData);
+            return;
+        }
+
+        if(selectedOption === 'Highest'){
+            sortedData.sort((a, b) => b.price - a.price);
+        }
+        else if(selectedOption === 'Lowest'){
+            sortedData.sort((a, b) => a.price - b.price);
+        }
+
+        setFilteredData(sortedData);
     }
 
 
@@ -49,7 +73,7 @@ const page = () => {
             </div>
 
             <div className="border-2 border-black py-2 px-3 text-xl font-bold rounded-full w-[130px]">
-                <select className="outline-none">
+                <select className="outline-none" value={sortOption} onChange={handleSortChange}>
                     <option>Sort By</option>
                     <option>Highest</option>
                     <option>Lowest</option>
