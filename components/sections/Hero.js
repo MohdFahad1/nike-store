@@ -52,19 +52,19 @@ const Hero = () => {
 
 
                         {/* FIRST SHOE */}
-                        <div className="relative  overflow-hidden lg:h-[200px] md:h-[200px] after:h-[110px]  lg:w-[200px] md:w-[200px]  w-[120px]  border-2 border-[#FF6452] rounded-xl flex justify-center items-center" onClick={() => setIsImage(shoe1)}>
+                        <div className={`relative  overflow-hidden lg:h-[200px] md:h-[200px] after:h-[110px]  lg:w-[200px] md:w-[200px]  w-[120px] ${isImage === shoe1 ? 'border-2 border-[#FF6452]' : '' }  rounded-xl flex justify-center items-center cursor-pointer`} onClick={() => setIsImage(shoe1)}>
                             <Image src={thumbnailBg} alt="bg" className="absolute"/>
                             <Image src={shoe1} alt="Shoe" className=" lg:h-[150px] md:h-[150px] h-[110px] lg:w-[150px] md:w-[150px] w-[110px] relative"/>
                         </div>
 
                         {/* SECOND SHOE */}
-                        <div className="relative overflow-hidden lg:h-[200px] md:h-[200px] h-[110px]  lg:w-[200px] md:w-[200px]  w-[120px]  border-2 border-[#FF6452] rounded-xl flex justify-center items-center" onClick={() => setIsImage(shoe2)}>
+                        <div className={`relative  overflow-hidden lg:h-[200px] md:h-[200px] after:h-[110px]  lg:w-[200px] md:w-[200px]  w-[120px] ${isImage === shoe2 ? 'border-2 border-[#FF6452]' : '' }  rounded-xl flex justify-center items-center cursor-pointer`} onClick={() => setIsImage(shoe2)}>
                             <Image src={thumbnailBg} alt="bg" className="absolute"/>
                             <Image src={shoe2} alt="Shoe" className="lg:h-[150px] md:h-[150px] h-[110px] lg:w-[150px] md:w-[150px] w-[110px] relative"/>
                         </div>
 
                         {/* THIRD SHOE */}
-                        <div className="relative overflow-hidden lg:h-[200px] md:h-[200px] h-[110px]  lg:w-[200px] md:w-[200px]  w-[120px]  border-2 border-[#FF6452] rounded-xl flex justify-center items-center" onClick={() => setIsImage(shoe3)}>
+                        <div className={`relative  overflow-hidden lg:h-[200px] md:h-[200px] after:h-[110px]  lg:w-[200px] md:w-[200px]  w-[120px] ${isImage === shoe3 ? 'border-2 border-[#FF6452]' : '' }  rounded-xl flex justify-center items-center cursor-pointer`} onClick={() => setIsImage(shoe3)}>
                             <Image src={thumbnailBg} alt="bg" className="absolute"/>
                             <Image src={shoe3} alt="Shoe" className="lg:h-[150px] md:h-[150px] h-[110px] lg:w-[150px] md:w-[150px] w-[110px] relative"/>
                         </div>
