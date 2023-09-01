@@ -1,5 +1,5 @@
 "use client"
-import React, {useState} from 'react';
+import React, {useState, useEffectect, useEffect} from 'react';
 import {data} from './data';
 import Image from 'next/image';
 import { FaSearch,  FaShoppingBag,  FaStar } from 'react-icons/fa';
@@ -9,15 +9,26 @@ import Lottie from 'lottie-react';
 const page = () => {
     const [filteredData, setFilteredData] = useState(data);
     const [searchQuery, setSearchQuery] = useState('');
+    const [isChecked, setIsChecked] = useState(false);
 
     const handleSearch = () => {
-        const filteredShoes = data.filter(shoe => 
+        const filteredShoes = data.filter((shoe) => 
             shoe.name.toLowerCase().includes(searchQuery.toLowerCase())
         );
 
-        setFilteredData(filteredShoes);
+        const filteredShoesWithCheckBox = isChecked ? filteredShoes.filter((shoe) => shoe.rating >= 4.5) : filteredShoes; 
+
+        setFilteredData(filteredShoesWithCheckBox);
     }
 
+    const handleCheckBox = (e) => {
+        setIsChecked(e.target.checked);
+    }
+
+
+    useEffect(() => {
+        handleSearch();
+    }, [isChecked])
 
   return (
     <section className="container mx-auto lg:px-20 px-3 my-10">
@@ -34,7 +45,7 @@ const page = () => {
         <div className='flex lg:flex-row md:flex-row flex-col lg:gap-10 md:gap-10 gap-0'>
             <div className='flex items-center gap-2 lg:my-0 md:my-0 my-10'>
                 <label className="text-[#6D6D6D] text-xl font-bold">Rating {"("}4.5+{")"}</label>
-                <input type="checkbox" className="h-[18px] w-[18px]"/>
+                <input type="checkbox" className="h-[18px] w-[18px]" onChange={handleCheckBox} checked={isChecked}/>
             </div>
 
             <div className="border-2 border-black py-2 px-3 text-xl font-bold rounded-full w-[130px]">
