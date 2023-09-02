@@ -8,6 +8,7 @@ import Loader from '../../../components/Animation/Loader.json';
 import Lottie from 'lottie-react';
 import { useDispatch } from 'react-redux';
 import { addItem } from '../../../redux/slices/cartSlice';
+import { useSelector } from 'react-redux';
 
 const page = () => {
     const [filteredData, setFilteredData] = useState(data);
@@ -15,6 +16,9 @@ const page = () => {
     const [isChecked, setIsChecked] = useState(false);
     const [sortOption, setSortOption] = useState('');
     const [loading, setLoading] = useState(false);
+
+    const items = useSelector((state) => state.cart);
+    console.log("CART ITEMS: ", items);
 
     const dispatch = useDispatch();
 
@@ -110,7 +114,7 @@ const page = () => {
                         <Image src={shoe.img} alt={shoe.name} priority={true} className='h-[150px] w-[300px] hover:-rotate-12 duration-500 my-5' />
                         <div className='flex justify-between w-full items-center mt-5'>
                             <h1 className="text-[#6D6D6D] text-xl font-bold">${shoe.price}</h1>
-                            <button className="flex justify-around items-center gap-2 rounded-full bg-[#FF6452] text-white px-4 py-2 text-xl" onClick={(e) => dispatch(addItem({name: shoe.name, price:shoe.price}))}>Add <FaShoppingBag /></button>
+                            <button className="flex justify-around items-center gap-2 rounded-full bg-[#FF6452] text-white px-4 py-2 text-xl" onClick={(e) => dispatch(addItem({name: shoe.name, price:shoe.price, img:shoe.img}))}>Add <FaShoppingBag /></button>
                         </div>
 
                     </div>

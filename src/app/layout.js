@@ -4,9 +4,13 @@ import { Inter } from 'next/font/google';
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
 import { Provider } from 'react-redux';
-import {store} from '../../redux/store';
+import { store } from '../../redux/store';
+import { PersistGate } from 'redux-persist/integration/react';
+import { persistStore } from 'redux-persist'
 
 const inter = Inter({ subsets: ['latin'] })
+
+const persistor = persistStore(store);
 
 export const metadata = {
   title: 'Nike',
@@ -15,14 +19,16 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <Provider store={store}>
-      <html lang="en">
-        <body className={inter.className}>
+    <html lang="en">
+      <body className={inter.className}>
+        <Provider store={store}>
+          <PersistGate persistor={persistor}>
             <Navbar />
-              {children}
+            {children}
             <Footer />
-        </body>
-      </html>
-    </Provider>
+          </PersistGate>
+        </Provider>
+      </body>
+    </html>
   )
 }
