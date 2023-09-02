@@ -3,10 +3,14 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import logo from '../../Assets/header-logo.svg';
 import { IoBagOutline } from 'react-icons/io5';
-import { FaBars } from 'react-icons/fa'
+import { FaBars } from 'react-icons/fa';
+import { useSelector } from 'react-redux';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    
+    const items = useSelector((state) => state);
+
   return (
     <nav className="container mx-auto lg:px-20 px-3 flex justify-between items-center h-20 text-xl lg:relative static z-10">
         <div>
@@ -20,11 +24,11 @@ const Navbar = () => {
             </ul>
         <div className="lg:block lg:gap-0 flex gap-10">
             <div className="relative">
-                <div className="bg-[#FF6452] h-4 w-4 rounded-full absolute -right-2 top-0 text-sm flex justify-center items-center text-white">
-                    0
+                <div className="bg-[#FF6452] h-5 w-5 rounded-full absolute -right-2 -bottom-2 text-sm flex justify-center items-center text-white">
+                    {items.cart.length}
                 </div>
                 <div>
-                <IoBagOutline className="cursor-pointer text-2xl"/>
+                <IoBagOutline className="cursor-pointer text-3xl"/>
                 </div>
             </div>
             
