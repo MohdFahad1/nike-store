@@ -72,6 +72,12 @@ const page = () => {
     return (
         <section className="container mx-auto lg:px-20 px-3 my-10">
 
+        <div>
+            <Image src="" alt=""/>
+            <h1 className="text-4xl font-bold uppercase">shop now</h1>
+        </div>
+
+
             {/* FILTERING SECTION */}
             <div className="mb-10 lg:flex lg:flex-row md:flex-row flex-col lg:justify-between md:justify-between justify-start lg:items-center md:items-center items-start">
 
@@ -102,19 +108,19 @@ const page = () => {
                 </div>
 
             </div>
-            <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 lg:place-items-start md:place-items-start place-items-center gap-10">
+            <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 lg:place-items-start md:place-items-start place-items-center gap-5">
                 {loading ? ((
                     <div className='flex justify-center items-center w-[90vw]'>
                         <Lottie animationData={Loader} loop={true} className="lg:h-[500px] lg:w-[500px] md:h-
                         [350px] md:w-[350px] h-[300px] w-[300px]"/>
                     </div>)) : (filteredData.length > 0 ? (filteredData.map((shoe) => (
-                    <div key={shoe.id} className="flex flex-col justify-center items-center rounded-2xl shadow-[0_3px_10px_rgb(0,0,0,0.2)] p-5 transhtmlForm transition-transhtmlForm hover:scale-[1.05] duration-300">
+                    <div key={shoe.id} className="flex flex-col justify-center items-center rounded-2xl shadow-[0_3px_10px_rgb(0,0,0,0.2)] p-5 transform transition-transform hover:scale-[1.05] duration-300">
                         <h1 className="text-2xl font-bold">{shoe.name}</h1>
                         <p className="flex items-center gap-1 text-[#6D6D6D] text-lg"><FaStar className="text-[#FF6452] text-xl" />{"("}{shoe.rating}{")"}</p>
                         <Image src={shoe.img} alt={shoe.name} priority={true} className='h-[150px] w-[300px] hover:-rotate-12 duration-500 my-5' />
                         <div className='flex justify-between w-full items-center mt-5'>
                             <h1 className="text-[#6D6D6D] text-xl font-bold">${shoe.price}</h1>
-                            <button className="flex justify-around items-center gap-2 rounded-full bg-[#FF6452] text-white px-4 py-2 text-xl" onClick={(e) => dispatch(addItem({name: shoe.name, price:shoe.price, img:shoe.img}))}>Add <FaShoppingBag /></button>
+                            <button className="flex justify-around items-center gap-2 rounded-full bg-[#FF6452] text-white px-4 py-2 text-xl hover:bg-[#bc4234] duration-200" onClick={(e) => dispatch(addItem({name: shoe.name, price:shoe.price, img:shoe.img}))}>Add <FaShoppingBag /></button>
                         </div>
 
                     </div>

@@ -7,6 +7,7 @@ import thumbnailBg from '../../Assets/thumbnail-background.svg';
 import shoe1 from '../../Assets/thumbnail-shoe1.svg';
 import shoe2 from '../../Assets/thumbnail-shoe2.svg';
 import shoe3 from '../../Assets/thumbnail-shoe3.svg';
+import Link from 'next/link';
 
 const Hero = () => {
     const [isImage, setIsImage] = useState(shoe1);
@@ -21,7 +22,9 @@ const Hero = () => {
                     <h1 className="lg:text-8xl md:text-8xl text-7xl font-bold capitalize lg:w-[760px] w-auto bg-white z-10 relative">the new arrival <span className="text-[#FF6452]">nike</span> shoes</h1>
                     <p className="text-[#6D6D6D] text-lg font-light lg:w-[380px] w-auto mt-10 mb-14">Discover stylish Nike arrivals, quality comfort, and innovation for your active life.</p>
                     <div>
-                        <button className="flex justify-center items-center gap-2 rounded-full bg-[#FF6452] text-white px-7 py-4 text-xl">Shop Now <span className="bg-white text-[#FF6452] rounded-full h-5 w-5"><BsArrowRightShort /></span></button>
+                        <Link href={"/products"}>
+                            <button className="flex justify-center items-center gap-2 rounded-full bg-[#FF6452] text-white px-7 py-4 text-xl">Shop Now <span className="bg-white text-[#FF6452] rounded-full h-5 w-5"><BsArrowRightShort /></span></button>
+                        </Link>
                     </div>
                 </div>
                 <div className="flex justify-between items-center mt-[65px]">

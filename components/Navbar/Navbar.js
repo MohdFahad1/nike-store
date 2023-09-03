@@ -5,6 +5,7 @@ import logo from '../../Assets/header-logo.svg';
 import { IoBagOutline } from 'react-icons/io5';
 import { FaBars } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
+import Link from 'next/link';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -14,13 +15,19 @@ const Navbar = () => {
   return (
     <nav className="container mx-auto lg:px-20 px-3 flex justify-between items-center h-20 text-xl lg:relative static z-10">
         <div>
-            <Image src={logo} alt="NIKE" priority={true} className="cursor-pointer"/>
+            <Link href={"/"}>
+                <Image src={logo} alt="NIKE" priority={true} className="cursor-pointer"/>
+            </Link>
         </div>
             <ul className="lg:flex gap-14 hidden">
-                <li className="cursor-pointer text-[#6D6D6D] font-light">Home</li>
+                <Link href={"/"}>
+                    <li className="cursor-pointer text-[#6D6D6D] font-light">Home</li>
+                </Link>
+                <Link href={"/products"}>
+                    <li className="cursor-pointer text-[#6D6D6D] font-light">Products</li>
+                </Link>
                 <li className="cursor-pointer text-[#6D6D6D] font-light">About Us</li>
-                <li className="cursor-pointer text-[#6D6D6D] font-light">Products</li>
-                <li className="cursor-pointer text-[#6D6D6D] font-light">Contact Us</li>
+                    <li className="cursor-pointer text-[#6D6D6D] font-light">Contact Us</li>
             </ul>
         <div className="lg:block lg:gap-0 flex gap-10">
             <div className="relative">
@@ -28,7 +35,9 @@ const Navbar = () => {
                     {items.cart.length}
                 </div>
                 <div>
-                <IoBagOutline className="cursor-pointer text-3xl"/>
+                <Link href={"/cart"}>
+                    <IoBagOutline className="cursor-pointer text-3xl"/>
+                </Link>
                 </div>
             </div>
             

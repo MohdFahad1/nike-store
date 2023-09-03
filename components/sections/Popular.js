@@ -6,6 +6,7 @@ import shoe6 from '../../Assets/shoe6.svg';
 import shoe7 from '../../Assets/shoe7.svg';
 import { FaStar } from 'react-icons/fa';
 import { BsArrowRightShort } from 'react-icons/bs';
+import Link from 'next/link';
 
 
 const Popular = () => {
@@ -56,7 +57,9 @@ const Popular = () => {
             </div>
             <div className="flex lg:justify-end md:justify-center justify-center lg:mt-20 md:mt-10 mt-10">
                 <div className="group">
-                    <button className="flex justify-center items-center gap-2 rounded-full bg-[#FF6452] text-white px-7 py-4 text-xl">Shop Now <span className="bg-white text-[#FF6452] rounded-full h-5 w-5"><BsArrowRightShort /></span></button>
+                    <Link href={"/products"}>
+                        <button className="flex justify-center items-center gap-2 rounded-full bg-[#FF6452] text-white px-7 py-4 text-xl">Shop Now <span className="bg-white text-[#FF6452] rounded-full h-5 w-5"><BsArrowRightShort /></span></button>
+                    </Link>
                 </div>
             </div>
         </section>

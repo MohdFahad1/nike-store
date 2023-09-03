@@ -2,6 +2,7 @@ import Image from 'next/image';
 import React from 'react';
 import shoe8 from '../../Assets/shoe8.svg';
 import { BsArrowRightShort } from 'react-icons/bs';
+import Link from 'next/link';
 
 const About = () => {
     return (
@@ -11,7 +12,9 @@ const About = () => {
                 <p className="text-[#6D6D6D] font-light text-lg mt-5">Ensuring premium comfort and style, our meticulously crafted footwear is designed to elevate your experience, providing you with unmatched quality, innovation, and a touch of elegance.</p>
                 <p className="my-10 text-[#6D6D6D] font-light text-lg">Our dedication to detail and excellence ensures your satisfaction</p>
                 <div>
-                    <button className="flex justify-center items-center gap-2 rounded-full bg-[#FF6452] text-white px-7 py-4 text-xl">Shop Now <span className="bg-white text-[#FF6452] rounded-full h-5 w-5"><BsArrowRightShort /></span></button>
+                    <Link href={"/products"}>
+                        <button className="flex justify-center items-center gap-2 rounded-full bg-[#FF6452] text-white px-7 py-4 text-xl">Shop Now <span className="bg-white text-[#FF6452] rounded-full h-5 w-5"><BsArrowRightShort /></span></button>
+                    </Link>
                 </div>
             </div>
             <div className="flex lg:justify-start justify-center lg:items-start items-center">
