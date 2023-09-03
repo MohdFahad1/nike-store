@@ -12,21 +12,25 @@ import Link from 'next/link';
 const Popular = () => {
     const data = [
         {
+            id:1,
             img: shoe4,
             name: "Nike Air Jordan-01",
             price: "200.20"
         },
         {
+            id:2,
             img: shoe5,
             name: "Nike Air Jordan-10",
             price: "210.20"
         },
         {
+            id:3,
             img: shoe6,
             name: "Nike Air Jordan-100",
             price: "220.20"
         },
         {
+            id:4,
             img: shoe7,
             name: "Nike Air Jordan-001",
             price: "230.20"
@@ -42,8 +46,8 @@ const Popular = () => {
             </div>
 
             <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-1 gap-10 lg:place-items-start md:place-items-start place-items-center">
-                {data.map((shoe, index) => (
-                    <div key={index}>
+                {data.map((shoe) => (
+                    <div key={shoe.id}>
                         <div>
                             <Image src={shoe.img} alt={shoe.name} />
                         </div>

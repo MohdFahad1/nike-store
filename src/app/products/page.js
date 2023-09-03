@@ -9,6 +9,7 @@ import Lottie from 'lottie-react';
 import { useDispatch } from 'react-redux';
 import { addItem } from '../../../redux/slices/cartSlice';
 import { useSelector } from 'react-redux';
+import Success from '../../../components/Toasts/Success';
 
 const page = () => {
     const [filteredData, setFilteredData] = useState(data);
@@ -16,6 +17,7 @@ const page = () => {
     const [isChecked, setIsChecked] = useState(false);
     const [sortOption, setSortOption] = useState('');
     const [loading, setLoading] = useState(false);
+    const [showToast, setShowToast] = useState(false);
 
     const items = useSelector((state) => state.cart);
     console.log("CART ITEMS: ", items);
@@ -62,7 +64,17 @@ const page = () => {
             setLoading(false);
         }, 1000);
     };
+
     
+    const handleAddToCart = (shoe) => {
+        dispatch(addItem({id: shoe.id, name: shoe.name, price:shoe.price, img:shoe.img}));
+
+        setShowToast(true);
+
+        setTimeout(() => {
+            setShowToast(false);
+        }, 3000);
+    }
 
 
     useEffect(() => {
@@ -120,7 +132,7 @@ const page = () => {
                         <Image src={shoe.img} alt={shoe.name} priority={true} className='h-[150px] w-[300px] hover:-rotate-12 duration-500 my-5' />
                         <div className='flex justify-between w-full items-center mt-5'>
                             <h1 className="text-[#6D6D6D] text-xl font-bold">${shoe.price}</h1>
-                            <button className="flex justify-around items-center gap-2 rounded-full bg-[#FF6452] text-white px-4 py-2 text-xl hover:bg-[#bc4234] duration-200" onClick={(e) => dispatch(addItem({name: shoe.name, price:shoe.price, img:shoe.img}))}>Add <FaShoppingBag /></button>
+                            <button className="flex justify-around items-center gap-2 rounded-full bg-[#FF6452] text-white px-4 py-2 text-xl hover:bg-[#bc4234] duration-200" onClick={() => handleAddToCart(shoe)}>Add <FaShoppingBag /></button>
                         </div>
 
                     </div>
@@ -130,6 +142,7 @@ const page = () => {
                         [350px] md:w-[350px] h-[300px] w-[300px]"/>
                     </div>))}
             </div>
+            <Success show={showToast} onClose={() => setShowToast(false)}/>
         </section>
     )
 }

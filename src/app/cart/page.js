@@ -1,7 +1,7 @@
 "use client"
-import React from 'react';
+import React, {useState} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeItem, incrementItem, decrementItem } from '../../../redux/slices/cartSlice';
+import { removeItem, incrementItem, decrementItem, removeAllItems } from '../../../redux/slices/cartSlice';
 import Image from 'next/image';
 // import { FaMinus, FaPlus } from 'react-icons/fa';
 import { BiSolidChevronLeft } from 'react-icons/bi'
@@ -9,12 +9,37 @@ import { ImBin } from 'react-icons/im'
 import Lottie from 'lottie-react';
 import Empty from '../../../components/Animation/EmptyCart.json';
 import Link from 'next/link';
+import Removed from '../../../components/Toasts/Removed';
+import Cleared from '../../../components/Toasts/Cleared';
 
 const page = () => {
+  const [showToast, setShowToast] = useState(false);
+  const [clearCartToast, setClearCartToast] = useState(false);
+
   const dispatch = useDispatch();
   const items = useSelector((state) => state.cart);
   const total = items.reduce((a, b) => a + b.price * b.quantity, 0);
-  console.log("CART ITEMS: ", items);
+
+  const handleRemoveItem = (itemId) => {
+      dispatch(removeItem(itemId));
+      console.log("ITEM ID: ", itemId);
+
+        setShowToast(true);
+
+        setTimeout(() => {
+            setShowToast(false);
+        }, 3000);
+  }
+
+  const handleRemoveAllItems = () => {
+    dispatch(removeAllItems());
+
+    setClearCartToast(true);
+
+    setTimeout(() => {
+      setClearCartToast(false);
+    }, 1000);
+  }
 
   return (
     <section className="contaner mx-auto lg:px-20 md:px-3 px-3 my-10">
@@ -33,7 +58,7 @@ const page = () => {
 
                 {/* IMAGE WITH NAME */}
                 <div>
-                  <Image src={item.img} alt={item.name} className="h-[100px] w-[200px]" />
+                  <Image src={item.img} alt={item.name} className="h-[100px] w-[200px]" priority={true}/>
                   <h1 className='text-2xl font-bold mt-2'>{item.name}</h1>
                 </div>
 
@@ -48,7 +73,7 @@ const page = () => {
 
                 <div className="flex lg:flex-row md:flex-row flex-col justify-between items-center lg:gap-0 md:gap-20 gap-10 lg:w-[500px] md:w-[250px]">
                   <h1 className="text-xl font-bold text-[#6D6D6D]">${item.price.toFixed(2)}</h1>
-                  <ImBin className='text-2xl text-red-600 cursor-pointer' onClick={e => dispatch(removeItem())} />
+                  <ImBin className='text-2xl text-red-600 cursor-pointer' onClick={() => handleRemoveItem(item.id)} />
                 </div>
               </div>
             ))) : (
@@ -70,6 +95,8 @@ const page = () => {
               </Link>
             </div>
 
+            <button className="flex justify-center items-center gap-2 rounded-full bg-red-700 text-white px-7 py-4 text-xl w-auto capitalize font-bold" onClick={() => handleRemoveAllItems()}>clear cart<span><ImBin /></span></button>
+
             {/* TOTAL AMOUNT */}
             <div className="bg-[#F0F0F0] flex flex-col justify-center items-center p-4 w-[300px]">
               <h1 className='text-2xl font-bold capitalize flex justify-between w-full'>subtotal: <span className='font-medium'>${items.length === 0 ? ('0') : (total.toFixed(2))}</span></h1>
@@ -80,6 +107,8 @@ const page = () => {
           </div>
         </div>
       </div>
+      <Removed show={showToast} onClose={() => setShowToast(false)}/>
+      <Cleared show={clearCartToast} onClose={() => setClearCartToast(false)}/>
     </section>
   )
 }
