@@ -1,4 +1,4 @@
-import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { combineReducers, configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import cartReducer from './slices/cartSlice';
 import storage from 'redux-persist/lib/storage';
 import { persistReducer } from 'redux-persist';
@@ -14,6 +14,13 @@ const rootReducer = combineReducers({
 })
  
 const persistedReducer = persistReducer(persistConfig, rootReducer);
-export const store = configureStore({
+
+const store = configureStore({
     reducer: persistedReducer,
-});
+    middleware: (getDefaultMiddleware) => 
+    getDefaultMiddleware({
+        serializableCheck: false,
+    }),
+})
+
+export default store;

@@ -69,7 +69,7 @@ const page = () => {
                   <h1 className='text-2xl font-bold mt-2'>{item.name}</h1>
                 </div>
 
-                <div className="flex lg:flex-row md:flex-row flex-col justify-between items-center lg:gap-0 md:gap-20 gap-10 lg:w-[700px] md:w-[250px]">
+                <div className="flex lg:flex-row md:flex-row flex-col justify-between items-center lg:gap-0 md:gap-20 gap-10 lg:w-[700px] md:w-[400px]">
 
                 {/* INCREMENT & DECREMENT */}
                 <div className="flex justify-center items-center gap-3 text-xl rounded-full border-2 border-[#6D6D6D] px-2 py-1">

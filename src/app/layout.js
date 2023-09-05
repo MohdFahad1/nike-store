@@ -4,7 +4,7 @@ import './globals.css';
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
 import { Provider } from 'react-redux';
-import { store } from '../../redux/store';
+import store  from '../../redux/store';
 import { PersistGate } from 'redux-persist/integration/react';
 import { persistStore } from 'redux-persist'
 
