@@ -1,6 +1,6 @@
 "use client"
+import { Montserrat } from 'next/font/google';
 import './globals.css';
-import { Inter } from 'next/font/google';
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
 import { Provider } from 'react-redux';
@@ -8,7 +8,7 @@ import { store } from '../../redux/store';
 import { PersistGate } from 'redux-persist/integration/react';
 import { persistStore } from 'redux-persist'
 
-const inter = Inter({ subsets: ['latin'] })
+const montserrat = Montserrat({ subsets: ['latin'] })
 
 const persistor = persistStore(store);
 
@@ -20,7 +20,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={montserrat.className}>
         <Provider store={store}>
           <PersistGate persistor={persistor}>
             <Navbar />

@@ -19,7 +19,7 @@ const Hero = () => {
             <div className="lg:w-[530px] md:w-[530px] w-auto">
                 <div className="lg:px-0 px-3">
                     <h3 className="text-[#FF6452] capitalize text-xl font-light my-14">our summer collections</h3>
-                    <h1 className="lg:text-8xl md:text-8xl text-7xl font-bold capitalize lg:w-[760px] w-auto bg-white z-10 relative">the new arrival <span className="text-[#FF6452]">nike</span> shoes</h1>
+                    <h1 className="lg:text-8xl md:text-8xl text-7xl font-bold capitalize lg:w-[800px] w-auto bg-white z-10 relative">the new arrival <span className="text-[#FF6452]">nike</span> shoes</h1>
                     <p className="text-[#6D6D6D] text-lg font-light lg:w-[380px] w-auto mt-10 mb-14">Discover stylish Nike arrivals, quality comfort, and innovation for your active life.</p>
                     <div>
                         <Link href={"/products"}>

@@ -52,7 +52,7 @@ const page = () => {
     <section className="contaner mx-auto lg:px-20 md:px-3 px-3 my-10">
       <h1 className="text-5xl capitalize font-bold lg:text-left md:text-center text-center mb-10">{items.length !== 0 ? ('items in cart') : ('no items in the cart')}</h1>
 
-      <div className="lg:w-[90vw] md:w-[90vw]  flex flex-col justify-center items-center">
+      <div className="lg:w-[90vw] md:w-[90vw]  flex flex-col justify-center items-center gap-16">
 
         {/* ITEMS IN CART */}
         <div>
@@ -61,7 +61,7 @@ const page = () => {
           <div className="lg:w-[90vw] md:w-[90vw]">
 
             {items.length !== 0 ? (items.map((item) => (
-              <div key={item.id} className="border-b-2 border-[#6D6D6D] flex justify-between items-center pb-2 mb-10">
+              <div key={item.id} className="border-2 border-[#6D6D6D] lg:p-10 md:p-5 p-3 bg-[#e3e3e3] flex justify-between items-center pb-2 mb-10 lg:gap-0 md:gap-0 gap-10">
 
                 {/* IMAGE WITH NAME */}
                 <div>
@@ -69,17 +69,17 @@ const page = () => {
                   <h1 className='text-2xl font-bold mt-2'>{item.name}</h1>
                 </div>
 
+                <div className="flex lg:flex-row md:flex-row flex-col justify-between items-center lg:gap-0 md:gap-20 gap-10 lg:w-[700px] md:w-[250px]">
 
                 {/* INCREMENT & DECREMENT */}
-                <div className="flex justify-center items-center gap-2 text-xl rounded-full border-2 border-[#6D6D6D] px-2 py-1">
-                  <FaMinus onClick={() => handleItemDecrease(item.id)}/>
+                <div className="flex justify-center items-center gap-3 text-xl rounded-full border-2 border-[#6D6D6D] px-2 py-1">
+                  <FaMinus onClick={() => handleItemDecrease(item.id)} className='cursor-pointer'/>
                   <span className="text-3xl text-[#FF6452]">{item.quantity}</span>
-                  <FaPlus onClick={() => handleItemIncrease(item.id)}/>
+                  <FaPlus onClick={() => handleItemIncrease(item.id)} className='cursor-pointer'/>
                 </div>
 
 
-                <div className="flex lg:flex-row md:flex-row flex-col justify-between items-center lg:gap-0 md:gap-20 gap-10 lg:w-[500px] md:w-[250px]">
-                  <h1 className="text-xl font-bold text-[#6D6D6D]">${item.price.toFixed(2)}</h1>
+                  <h1 className="text-xl font-bold text-[#6D6D6D]">${(item.price * item.quantity).toFixed(2)}</h1>
                   <ImBin className='text-2xl text-red-600 cursor-pointer' onClick={() => handleRemoveItem(item.id)} />
                 </div>
               </div>

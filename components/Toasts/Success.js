@@ -8,7 +8,7 @@ const Success = ({ show, onClose}) => {
         if(show) {
             setTimeout(() => {
                 onClose();
-            }, 1000);
+            }, 800);
         }
     }, [show, onClose])
     
