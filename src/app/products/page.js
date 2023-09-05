@@ -20,7 +20,6 @@ const page = () => {
     const [showToast, setShowToast] = useState(false);
 
     const items = useSelector((state) => state.cart);
-    console.log("CART ITEMS: ", items);
 
     const dispatch = useDispatch();
 
@@ -67,7 +66,7 @@ const page = () => {
 
     
     const handleAddToCart = (shoe) => {
-        dispatch(addItem({id: shoe.id, name: shoe.name, price:shoe.price, img:shoe.img}));
+        dispatch(addItem(shoe));
 
         setShowToast(true);
 
@@ -83,11 +82,6 @@ const page = () => {
 
     return (
         <section className="container mx-auto lg:px-20 px-3 my-10">
-
-        <div>
-            <Image src="" alt=""/>
-            <h1 className="text-4xl font-bold uppercase">shop now</h1>
-        </div>
 
 
             {/* FILTERING SECTION */}

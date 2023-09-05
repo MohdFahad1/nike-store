@@ -10,7 +10,7 @@ import Link from 'next/link';
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     
-    const items = useSelector((state) => state);
+    const items = useSelector((state) => state.cart);
 
   return (
     <nav className="container mx-auto lg:px-20 px-3 flex justify-between items-center h-20 text-xl lg:relative static z-10">
@@ -32,7 +32,7 @@ const Navbar = () => {
         <div className="lg:block lg:gap-0 flex gap-10">
             <div className="relative">
                 <div className="bg-[#FF6452] h-5 w-5 rounded-full absolute -right-2 -bottom-2 text-sm flex justify-center items-center text-white">
-                    {items.cart.length}
+                    {items.length}
                 </div>
                 <div>
                 <Link href={"/cart"}>

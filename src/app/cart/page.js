@@ -1,9 +1,9 @@
 "use client"
 import React, {useState} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeItem, incrementItem, decrementItem, removeAllItems } from '../../../redux/slices/cartSlice';
+import { removeItem, increaseItem, decreaseItem, removeAllItems } from '../../../redux/slices/cartSlice';
 import Image from 'next/image';
-// import { FaMinus, FaPlus } from 'react-icons/fa';
+import { FaMinus, FaPlus } from 'react-icons/fa';
 import { BiSolidChevronLeft } from 'react-icons/bi'
 import { ImBin } from 'react-icons/im'
 import Lottie from 'lottie-react';
@@ -22,7 +22,6 @@ const page = () => {
 
   const handleRemoveItem = (itemId) => {
       dispatch(removeItem(itemId));
-      console.log("ITEM ID: ", itemId);
 
         setShowToast(true);
 
@@ -39,6 +38,14 @@ const page = () => {
     setTimeout(() => {
       setClearCartToast(false);
     }, 1000);
+  }
+
+  const handleItemIncrease = (itemId) => {
+    dispatch(increaseItem(itemId));
+  }
+
+  const handleItemDecrease = (itemId) => {
+    dispatch(decreaseItem(itemId));
   }
 
   return (
@@ -64,11 +71,11 @@ const page = () => {
 
 
                 {/* INCREMENT & DECREMENT */}
-                {/* <div className="flex justify-center items-center gap-2 text-xl rounded-full border-2 border-[#6D6D6D] px-2 py-1">
-                  <FaMinus onClick={() => dispatch(decrementItem(item.id))}/>
+                <div className="flex justify-center items-center gap-2 text-xl rounded-full border-2 border-[#6D6D6D] px-2 py-1">
+                  <FaMinus onClick={() => handleItemDecrease(item.id)}/>
                   <span className="text-3xl text-[#FF6452]">{item.quantity}</span>
-                  <FaPlus onClick={() => dispatch(incrementItem(item.id))}/>
-                </div> */}
+                  <FaPlus onClick={() => handleItemIncrease(item.id)}/>
+                </div>
 
 
                 <div className="flex lg:flex-row md:flex-row flex-col justify-between items-center lg:gap-0 md:gap-20 gap-10 lg:w-[500px] md:w-[250px]">

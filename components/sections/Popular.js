@@ -49,7 +49,7 @@ const Popular = () => {
                 {data.map((shoe) => (
                     <div key={shoe.id}>
                         <div>
-                            <Image src={shoe.img} alt={shoe.name} />
+                            <Image src={shoe.img} alt={shoe.name} priority={true}/>
                         </div>
                         <div className="mt-5">
                             <h1 className="flex gap-1 text-[#6D6D6D]"><span className="text-[#FF6542]"><FaStar /></span> {"("}4.5{")"}</h1>

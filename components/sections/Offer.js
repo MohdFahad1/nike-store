@@ -7,7 +7,7 @@ const Offer = () => {
     return (
         <section className="flex lg:flex-row md:flex-col-reverse flex-col-reverse items-center gap-10 lg:h-[100vh] md:h-auto h-auto lg:py-20 md:py-10 py-10">
             <div>
-                <Image src={offer} alt="offer" />
+                <Image src={offer} alt="offer" priority={true}/>
             </div>
             <div className="lg:w-[650px] md:w-auto w-auto lg:pr-0 md:pr-20 pr-0">
                 <h1 className="text-5xl font-bold capitalize"><span className="text-[#FF6452]">special</span> offer</h1>

@@ -18,7 +18,7 @@ const About = () => {
                 </div>
             </div>
             <div className="flex lg:justify-start justify-center lg:items-start items-center">
-                <Image src={shoe8} alt="shoe" />
+                <Image src={shoe8} alt="shoe" priority={true}/>
             </div>
         </section>
     )

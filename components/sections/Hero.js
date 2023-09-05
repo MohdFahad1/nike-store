@@ -45,9 +45,9 @@ const Hero = () => {
 
             {/* SHOE SHOWCASE */}
             <div className="lg:static relative h-auto">
-                    <Image src={bg} alt="bg" className="absolute top-0 h-full"/>
+                    <Image src={bg} alt="bg" className="absolute top-0 h-full" priority={true}/>
                     <div>
-                        <Image src={isImage} alt="Shoe" className='relative lg:h-[500px] md:h-[500px] h-[400px] lg:w-[500px] md:w-[500px] w-[400px] lg:left-[20%] md:left-[20%] left-0 lg:top-[50px] md:top-[50px] top-0'/>
+                        <Image src={isImage} alt="Shoe" className='relative lg:h-[500px] md:h-[500px] h-[400px] lg:w-[500px] md:w-[500px] w-[400px] lg:left-[20%] md:left-[20%] left-0 lg:top-[50px] md:top-[50px] top-0' priority={true}/>
                     </div>
 
                     {/* SHOES SELECTOR */}
@@ -56,20 +56,20 @@ const Hero = () => {
 
                         {/* FIRST SHOE */}
                         <div className={`relative  overflow-hidden lg:h-[200px] md:h-[200px] after:h-[110px]  lg:w-[200px] md:w-[200px]  w-[120px] ${isImage === shoe1 ? 'border-2 border-[#FF6452]' : '' }  rounded-xl flex justify-center items-center cursor-pointer`} onClick={() => setIsImage(shoe1)}>
-                            <Image src={thumbnailBg} alt="bg" className="absolute"/>
-                            <Image src={shoe1} alt="Shoe" className=" lg:h-[150px] md:h-[150px] h-[110px] lg:w-[150px] md:w-[150px] w-[110px] relative"/>
+                            <Image src={thumbnailBg} alt="bg" className="absolute" priority={true}/>
+                            <Image src={shoe1} alt="Shoe" className=" lg:h-[150px] md:h-[150px] h-[110px] lg:w-[150px] md:w-[150px] w-[110px] relative" priority={true}/>
                         </div>
 
                         {/* SECOND SHOE */}
                         <div className={`relative  overflow-hidden lg:h-[200px] md:h-[200px] after:h-[110px]  lg:w-[200px] md:w-[200px]  w-[120px] ${isImage === shoe2 ? 'border-2 border-[#FF6452]' : '' }  rounded-xl flex justify-center items-center cursor-pointer`} onClick={() => setIsImage(shoe2)}>
-                            <Image src={thumbnailBg} alt="bg" className="absolute"/>
-                            <Image src={shoe2} alt="Shoe" className="lg:h-[150px] md:h-[150px] h-[110px] lg:w-[150px] md:w-[150px] w-[110px] relative"/>
+                            <Image src={thumbnailBg} alt="bg" className="absolute" priority={true}/>
+                            <Image src={shoe2} alt="Shoe" className="lg:h-[150px] md:h-[150px] h-[110px] lg:w-[150px] md:w-[150px] w-[110px] relative" priority={true}/>
                         </div>
 
                         {/* THIRD SHOE */}
                         <div className={`relative  overflow-hidden lg:h-[200px] md:h-[200px] after:h-[110px]  lg:w-[200px] md:w-[200px]  w-[120px] ${isImage === shoe3 ? 'border-2 border-[#FF6452]' : '' }  rounded-xl flex justify-center items-center cursor-pointer`} onClick={() => setIsImage(shoe3)}>
-                            <Image src={thumbnailBg} alt="bg" className="absolute"/>
-                            <Image src={shoe3} alt="Shoe" className="lg:h-[150px] md:h-[150px] h-[110px] lg:w-[150px] md:w-[150px] w-[110px] relative"/>
+                            <Image src={thumbnailBg} alt="bg" className="absolute" priority={true}/>
+                            <Image src={shoe3} alt="Shoe" className="lg:h-[150px] md:h-[150px] h-[110px] lg:w-[150px] md:w-[150px] w-[110px] relative" priority={true}/>
                         </div>
                     </div>
             </div>
