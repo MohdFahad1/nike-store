@@ -8,43 +8,44 @@ import { useSelector } from 'react-redux';
 import Link from 'next/link';
 
 const Navbar = () => {
-    const [isOpen, setIsOpen] = useState(false);
-    
-    const items = useSelector((state) => state.cart);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const items = useSelector((state) => state.cart);
 
   return (
     <nav className="container mx-auto lg:px-20 px-3 flex justify-between items-center h-20 text-xl lg:relative static z-10">
-        <div>
-            <Link href={"/"}>
-                <Image src={logo} alt="NIKE" priority={true} className="cursor-pointer"/>
+      <div>
+        <Link href={"/"}>
+          <Image src={logo} alt="NIKE" priority={true} className="cursor-pointer" />
+        </Link>
+      </div>
+      <ul className={`lg:flex gap-14 ${isOpen ? 'block' : 'hidden'} lg:block absolute top-20 left-0 bg-white w-full text-center lg:static lg:bg-transparent lg:w-auto lg:shadow-none md:shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] z-10`}>
+        <Link href={"/"}>
+          <li className="cursor-pointer text-[#6D6D6D] font-light py-2 hover:bg-gray-100" onClick={() => setIsOpen(false)}>Home</li>
+        </Link>
+        <Link href={"/products"}>
+          <li className="cursor-pointer text-[#6D6D6D] font-light py-2 hover:bg-gray-100" onClick={() => setIsOpen(false)}>Products</li>
+        </Link>
+        <li className="cursor-pointer text-[#6D6D6D] font-light py-2 hover:bg-gray-100" onClick={() => setIsOpen(false)}>About Us</li>
+        <li className="cursor-pointer text-[#6D6D6D] font-light py-2 hover:bg-gray-100" onClick={() => setIsOpen(false)}>Contact Us</li>
+      </ul>
+      <div className="lg:block lg:gap-0 flex gap-10">
+        <div className="relative">
+          <div className="bg-[#FF6452] h-5 w-5 rounded-full absolute -right-2 -bottom-2 text-sm flex justify-center items-center text-white">
+            {items.length}
+          </div>
+          <div>
+            <Link href={"/cart"}>
+              <IoBagOutline className="cursor-pointer text-3xl" />
             </Link>
+          </div>
         </div>
-            <ul className="lg:flex gap-14 hidden">
-                <Link href={"/"}>
-                    <li className="cursor-pointer text-[#6D6D6D] font-light">Home</li>
-                </Link>
-                <Link href={"/products"}>
-                    <li className="cursor-pointer text-[#6D6D6D] font-light">Products</li>
-                </Link>
-                <li className="cursor-pointer text-[#6D6D6D] font-light">About Us</li>
-                    <li className="cursor-pointer text-[#6D6D6D] font-light">Contact Us</li>
-            </ul>
-        <div className="lg:block lg:gap-0 flex gap-10">
-            <div className="relative">
-                <div className="bg-[#FF6452] h-5 w-5 rounded-full absolute -right-2 -bottom-2 text-sm flex justify-center items-center text-white">
-                    {items.length}
-                </div>
-                <div>
-                <Link href={"/cart"}>
-                    <IoBagOutline className="cursor-pointer text-3xl"/>
-                </Link>
-                </div>
-            </div>
-            
-            <FaBars className="lg:hidden block text-2xl cursor-pointer" onClick={() => setIsOpen(!isOpen)}/>
+        <div className="lg:hidden block text-2xl cursor-pointer" onClick={() => setIsOpen(!isOpen)}>
+          <FaBars />
         </div>
+      </div>
     </nav>
-  )
-}
+  );
+};
 
 export default Navbar;
