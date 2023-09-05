@@ -6,6 +6,7 @@ import { IoBagOutline } from 'react-icons/io5';
 import { FaBars } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
 import Link from 'next/link';
+import {Link as ScrollLink} from 'react-scroll'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,13 +22,17 @@ const Navbar = () => {
       </div>
       <ul className={`lg:flex gap-14 ${isOpen ? 'block' : 'hidden'} lg:block absolute top-20 left-0 bg-white w-full text-center lg:static lg:bg-transparent lg:w-auto lg:shadow-none md:shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] z-10`}>
         <Link href={"/"}>
-          <li className="cursor-pointer text-[#6D6D6D] font-light py-2 hover:bg-gray-100" onClick={() => setIsOpen(false)}>Home</li>
+          <li className="cursor-pointer text-[#6D6D6D] font-light py-2 lg:hover:bg-transparent hover:bg-gray-100" onClick={() => setIsOpen(false)}>Home</li>
         </Link>
         <Link href={"/products"}>
-          <li className="cursor-pointer text-[#6D6D6D] font-light py-2 hover:bg-gray-100" onClick={() => setIsOpen(false)}>Products</li>
+          <li className="cursor-pointer text-[#6D6D6D] font-light py-2 lg:hover:bg-transparent hover:bg-gray-100" onClick={() => setIsOpen(false)}>Products</li>
         </Link>
-        <li className="cursor-pointer text-[#6D6D6D] font-light py-2 hover:bg-gray-100" onClick={() => setIsOpen(false)}>About Us</li>
-        <li className="cursor-pointer text-[#6D6D6D] font-light py-2 hover:bg-gray-100" onClick={() => setIsOpen(false)}>Contact Us</li>
+        <ScrollLink to="about" smooth={true} duration={1000}>
+        <li className="cursor-pointer text-[#6D6D6D] font-light py-2 lg:hover:bg-transparent hover:bg-gray-100" onClick={() =>setIsOpen(false)}>About Us</li>
+        </ScrollLink>
+        <ScrollLink to="contact" smooth={true} duration={1000}>
+        <li className="cursor-pointer text-[#6D6D6D] font-light py-2 lg:hover:bg-transparent hover:bg-gray-100" onClick={() => setIsOpen(false)}>Contact Us</li>
+        </ScrollLink>
       </ul>
       <div className="lg:block lg:gap-0 flex gap-10">
         <div className="relative">

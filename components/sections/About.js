@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const About = () => {
     return (
-        <section className="lg:h-[100vh] md:h-auto h-auto flex lg:flex-row md:flex-col flex-col  lg:justify-between justify-center items-center lg:gap-0 gap-14 lg:py-0 md:py-20 py-10">
+        <section className="lg:h-[100vh] md:h-auto h-auto flex lg:flex-row md:flex-col flex-col  lg:justify-between justify-center items-center lg:gap-0 gap-14 lg:py-0 md:py-20 py-10" id="about">
             <div className='lg:w-[600px] w-auto'>
                 <h1 className="text-5xl font-semibold">We Provide You <span className="text-[#FF6452]">Super Quality</span> Shoes</h1>
                 <p className="text-[#6D6D6D] font-light text-lg mt-5">Ensuring premium comfort and style, our meticulously crafted footwear is designed to elevate your experience, providing you with unmatched quality, innovation, and a touch of elegance.</p>
