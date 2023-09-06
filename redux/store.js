@@ -3,6 +3,7 @@ import cartReducer from './slices/cartSlice';
 import storage from 'redux-persist/lib/storage';
 import { persistReducer } from 'redux-persist';
 
+
 const persistConfig = {
     key: "root",
     version: 1,
@@ -19,7 +20,7 @@ const store = configureStore({
     reducer: persistedReducer,
     middleware: (getDefaultMiddleware) => 
     getDefaultMiddleware({
-        serializableCheck: false,
+        serializableCheck: true,
     }),
 })
 
