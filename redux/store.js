@@ -1,3 +1,4 @@
+"use client"
 import { combineReducers, configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import cartReducer from './slices/cartSlice';
 import storage from 'redux-persist/lib/storage';
@@ -20,7 +21,7 @@ const store = configureStore({
     reducer: persistedReducer,
     middleware: (getDefaultMiddleware) => 
     getDefaultMiddleware({
-        serializableCheck: true,
+        serializableCheck: false,
     }),
 })
 

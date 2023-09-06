@@ -21,7 +21,7 @@ const Testimonials = () => {
             {/* FIRST CUSTOMER */}
             <div className="flex flex-col justify-center items-center w-[350px]">
                 <div className="flex justify-center items-center bg-cover overflow-hidden rounded-full h-[150px] w-[150px] mb-5">
-                    <Image src={customer1} alt="pfp" priority={true}/>
+                    <Image src={customer1} alt="pfp" priority={true} className='h-auto w-auto'/>
                 </div>
                 <p className="text-lg text-[#6D6D6D] font-light">The attention to detail and the quality of the product exceeded my expectations. Highly recommended!</p>
                 <p className="text-[#6D6D6D] flex gap-1 items-center mt-2 mb-4"><FaStar className="text-[#FF6452] text-xl"/> {"("}4.5{")"}</p>
